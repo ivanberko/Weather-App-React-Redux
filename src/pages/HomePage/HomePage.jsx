@@ -1,9 +1,10 @@
 import React from 'react';
+import { listCities } from "./HomePage.module.css";
 
 import ListCities from '../../components/ListCities/ListCitiesContainer';
 
 const HomePage = () => (
-  <ul>
+  <ul className={listCities}>
     <ListCities />
   </ul>
 );

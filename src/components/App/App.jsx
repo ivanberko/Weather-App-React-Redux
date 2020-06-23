@@ -6,7 +6,7 @@ import SearchForm from '../SearchForm/feachWeatherContainer';
 
 //page
 import HomePage from "../../pages/HomePage/HomePage";
-// import DetailsPage from "../../pages/DetailsPage/DetailsPage";
+import DetailsPage from "../../pages/DetailsPage/feachForecastContainer";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
       <SearchForm />
       <Switch>
         <Route path="/" exact component={HomePage} />
-        {/* <Route path="/details" component={DetailsPage} /> */}
+        <Route path="/details/:city" component={DetailsPage} />
         <Redirect to="/" />
       </Switch>
     </main>

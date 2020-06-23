@@ -1,0 +1,26 @@
+.linkItem {
+  text-decoration: none;
+  color: #313131;
+  cursor: pointer;
+}
+
+.linkItem:not(:last-child) {
+  margin-right: 20px;
+}
+
+.listItem {
+  width: 150px;
+  border: 1px solid #313131;
+  border-radius: 5px;
+}
+
+.titleItem {
+  margin: 0;
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.tempItem {
+  margin: 0;
+  font-size: 32px;
+}

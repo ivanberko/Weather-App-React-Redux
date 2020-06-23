@@ -1,34 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-export default class SearchForm extends Component {
-  state = {
-    query: '',
+const SearchForm = ({fetchCurrentWeather}) => {
+  const [query, setQuery] = useState('');
+
+  const handleChenge = ({ target: { value } }) => {
+    setQuery(value);
   };
 
-  handleChenge = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = (e) => {
-    const { query } = this.state;
-    const { fetchCurrentWeather } = this.props;
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetchCurrentWeather(query);
   };
 
-  render() {
-    const { query } = this.state;
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="query"
-          value={query}
-          placeholder="Enter the city"
-          onChange={this.handleChenge}
-        />
-        <button type="submit">Add city</button>
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="query"
+        value={query}
+        placeholder="Enter the city"
+        onChange={handleChenge}
+      />
+      <button type="submit">Add city</button>
+    </form>
+  );
+};
+
+export default SearchForm;
