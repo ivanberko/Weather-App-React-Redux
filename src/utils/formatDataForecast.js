@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { v4 as uuidv4 } from 'uuid';
 
 const getDayNumber = (element) => {
   const ms = element * 1000;
@@ -21,8 +22,9 @@ export const forecast = (response) => {
 };
 
 export const modifyResponse = (list) => {
-  return list?.map((day) => {
+  return list.map((day) => {
     const dayForecast = {
+      id: uuidv4(),
       dayOfWeek: '',
       date: '',
       month: '',

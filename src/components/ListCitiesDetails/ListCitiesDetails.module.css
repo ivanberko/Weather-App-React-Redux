@@ -1,0 +1,32 @@
+.listCities {
+  color: #313131;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listItem:not(:last-child) {
+  margin-right: 20px;
+}
+
+.listItem {
+  width: 150px;
+  border: 1px solid #313131;
+  border-radius: 5px;
+}
+
+.titleItem {
+  margin: 0;
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.tempItem {
+  margin: 0;
+  font-size: 32px;
+}
+
+.boxTemp {
+  display: flex;
+  justify-content: space-around;
+}

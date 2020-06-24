@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchCurrentWeather } from '../../redux/operations/weatherOperation';
-import SearchForm from '../SearchForm/SearchForm';
+import SearchForm from './SearchForm';
 
 const mapDispatchToProps = {
   fetchCurrentWeather,

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const SearchForm = ({fetchCurrentWeather}) => {
+import { setLocalStorageCity } from '../../utils/helpers';
+
+const SearchForm = ({ fetchCurrentWeather }) => {
   const [query, setQuery] = useState('');
 
   const handleChenge = ({ target: { value } }) => {
@@ -9,7 +12,12 @@ const SearchForm = ({fetchCurrentWeather}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchCurrentWeather(query);
+    const cities = JSON.parse(localStorage.getItem('cities'));
+    setLocalStorageCity(query);
+    if (!cities.includes(query) && query) {
+      fetchCurrentWeather(query);
+    }
+    setQuery('');
   };
 
   return (
@@ -24,6 +32,10 @@ const SearchForm = ({fetchCurrentWeather}) => {
       <button type="submit">Add city</button>
     </form>
   );
+};
+
+SearchForm.propTypes = {
+  fetchCurrentWeather: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

@@ -5,5 +5,4 @@ const mapStateToProps = (state) => ({
   listCitiesWeather: state.dataWeather.listCitiesWeather,
 });
 
-
 export default connect(mapStateToProps, null)(ListCities);

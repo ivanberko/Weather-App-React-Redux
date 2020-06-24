@@ -1,41 +1,21 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { modifyResponse } from '../../utils/formatDataForecast';
 
-const DetailsPage = ({ dayForecast, fetchForecastWeather }) => {
+import ListCitiesDetails from '../../components/ListCitiesDetails/ListCitiesDetailsContainer';
+
+const DetailsPage = ({ fetchForecastWeather }) => {
   const { city } = useParams();
 
   useEffect(() => {
     fetchForecastWeather(city);
-  }, [city]);
-  //FIXME:разобраться с React Hook useEffect has a missing dependency: 'fetchForecastWeather'.
+  }, [city, fetchForecastWeather]);
 
-  const forecast = modifyResponse(dayForecast);
-  return (
-    <ul>
-      {forecast?.map(({ dayOfWeek, date, month, icon, tempMin, tempMax }) => (
-        // TODO: добавить id
-        <li>
-          <p>{dayOfWeek}</p>
-          <p>
-            {date} {month}
-          </p>
-          <img src={icon} alt="icon" />
-          <div>
-            <div>
-              <p>min</p>
-              <span>{tempMin}</span>
-            </div>
+  return <ListCitiesDetails />;
+};
 
-            <div>
-              <p>max</p>
-              <span>{tempMax}</span>
-            </div>
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
+DetailsPage.propTypes = {
+  fetchForecastWeather: PropTypes.func.isRequired,
 };
 
 export default DetailsPage;

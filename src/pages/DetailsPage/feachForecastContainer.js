@@ -1,13 +1,9 @@
 import { connect } from 'react-redux';
 import { fetchForecastWeather } from '../../redux/operations/weatherOperation';
-import DetailsPage from '../DetailsPage/DetailsPage';
-
-const mapStateToProps = (state) => ({
-  dayForecast: state.dataWeather.cityForecast.list
-});
+import DetailsPage from './DetailsPage';
 
 const mapDispatchToProps = {
   fetchForecastWeather,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailsPage);
+export default connect(null, mapDispatchToProps)(DetailsPage);

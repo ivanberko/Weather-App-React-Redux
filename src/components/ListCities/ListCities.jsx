@@ -1,6 +1,11 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import { linkItem, listItem, titleItem, tempItem } from "./ListCities.module.css";
+import {
+  linkItem,
+  listItem,
+  titleItem,
+  tempItem,
+} from './ListCities.module.css';
 
 const ListCities = ({ listCitiesWeather }) =>
   listCitiesWeather.map(({ dt, name, month, date, dayOfWeek, temp, icon }) => (

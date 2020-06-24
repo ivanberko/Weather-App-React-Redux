@@ -1,9 +1,9 @@
-import moment from "moment";
+import moment from 'moment';
 
-export function createCurrentWeatherObject(res) {
+function createCurrentWeatherObject(res) {
   const {
     dt,
-    main: { temp, temp_min, temp_max },
+    main: { temp, temp_min: tempMin, temp_max: tempMax },
     name,
     weather: [{ icon }],
     sys: { sunrise, sunset },
@@ -17,8 +17,8 @@ export function createCurrentWeatherObject(res) {
     date: getLocalTime().format('DD'),
     dayOfWeek: getLocalTime().format('ddd'),
     temp: Math.floor(temp),
-    temp_max: Math.floor(temp_max),
-    temp_min: Math.floor(temp_min),
+    tempMax: Math.floor(tempMax),
+    tempMin: Math.floor(tempMin),
     icon: `http://openweathermap.org/img/wn/${icon}@2x.png`,
     name,
     sunrise,
@@ -40,3 +40,5 @@ export function createCurrentWeatherObject(res) {
 
   return newObj;
 }
+
+export default createCurrentWeatherObject;

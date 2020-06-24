@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { createCurrentWeatherObject } from '../../utils/formatDataWeather';
-import {forecast} from '../../utils/formatDataForecast';
+import createCurrentWeatherObject from '../../utils/formatDataWeather';
+import { forecast } from '../../utils/formatDataForecast';
 
 import {
   feachWeatherStart,
