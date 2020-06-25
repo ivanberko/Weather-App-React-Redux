@@ -1,0 +1,31 @@
+.searchForm {
+  margin: 0 auto;
+  width: 400px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(36, 36, 36);
+  border-radius: 5px;
+}
+
+.searchInput {
+  width: 90%;
+  font-size: 22px;
+  outline: none;
+  border: none;
+}
+
+.searchBtn {
+  width: 10%;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background-color: rgb(36, 36, 36);
+  background-image: url(../../img/icon/target.png);
+  background-size: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  outline: none;
+  cursor: pointer;
+}

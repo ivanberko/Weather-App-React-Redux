@@ -1,8 +1,8 @@
 export const setLocalStorageCity = (cityName) => {
   const cities = JSON.parse(localStorage.getItem('cities'));
-  if (cities === null && cityName) {
+  if (cities === null) {
     localStorage.setItem('cities', JSON.stringify([cityName]));
-  } else if (!cities.includes(cityName) && cityName) {
+  } else if (!cities.includes(cityName)) {
     localStorage.setItem('cities', JSON.stringify([...cities, cityName]));
   }
 };
