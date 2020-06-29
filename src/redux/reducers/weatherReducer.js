@@ -36,7 +36,23 @@ const cityWeatherForecast = (state = {}, { type, payload }) => {
   }
 };
 
+const notifyErrorReducer = (state = null, { type, payload }) => {
+  switch (type) {
+    case TypeCurrent.FEACH_UPDATE_START:
+    case TypeCurrent.FEACH_WEATHER_START:
+      return null;
+
+    case TypeCurrent.FEACH_UPDATE_ERROR:
+    case TypeCurrent.FEACH_WEATHER_ERROR:
+      return payload.error.message;
+
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   listCitiesWeather: cityWeather,
   cityForecast: cityWeatherForecast,
+  notifyError: notifyErrorReducer,
 });

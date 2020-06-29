@@ -38,6 +38,7 @@
   background-repeat: no-repeat;
   outline: none;
   cursor: pointer;
+  transition: 0.3s linear;
 }
 
 .itemBtnUpdate {
@@ -49,4 +50,12 @@
 .itemBtnDelete {
   composes: button;
   background-image: url(../../img/icon/delete.png);
+}
+
+.itemBtnDelete:hover {
+  background-color: rgb(218, 56, 56);
+}
+
+.itemBtnUpdate:hover {
+  background-color: rgb(218, 56, 56);
 }

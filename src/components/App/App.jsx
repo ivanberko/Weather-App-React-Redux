@@ -1,10 +1,8 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
-
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 // page
-
 const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage' /* webpackChunkName: "home-page" */),
 );
@@ -25,7 +23,6 @@ const App = ({ fetchCurrentWeather }) => {
       });
     }
   });
-
   return (
     <main>
       <Suspense fallback={<h1>LOADING....</h1>}>

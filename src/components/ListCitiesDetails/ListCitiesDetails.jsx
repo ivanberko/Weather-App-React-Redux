@@ -7,18 +7,22 @@ import {
   tempItem,
   boxTemp,
   listCities,
+  btnGoBack,
 } from './ListCitiesDetails.module.css';
 
 import { modifyResponse } from '../../utils/formatDataForecast';
 import { forecastSlice } from '../../utils/helpers';
 
-const ListCitiesDetails = ({ dayForecast, city }) => {
+const ListCitiesDetails = ({ dayForecast, city, handleGoBack }) => {
   const forecast = modifyResponse(dayForecast);
 
   return (
     <>
       <h1 className={titleItem}> Forecast Weather</h1>
       <h2 className={titleItem}>{city}</h2>
+      <button type="button" className={btnGoBack} onClick={handleGoBack}>
+        &#9668; Back
+      </button>
       <ul className={listCities}>
         {forecastSlice(forecast).map(
           ({ id, dayOfWeek, date, month, icon, tempMin, tempMax }) => (
@@ -55,6 +59,7 @@ ListCitiesDetails.defaultProps = {
 ListCitiesDetails.propTypes = {
   dayForecast: PropTypes.arrayOf(PropTypes.array),
   city: PropTypes.string,
+  handleGoBack: PropTypes.func.isRequired,
 };
 
 export default ListCitiesDetails;
