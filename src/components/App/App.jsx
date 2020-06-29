@@ -12,7 +12,9 @@ const App = ({ fetchCurrentWeather }) => {
     const persistedCities = localStorage.getItem('cities');
     if (persistedCities) {
       const cities = JSON.parse(persistedCities);
-      cities.forEach((el) => fetchCurrentWeather(el));
+      cities.forEach((el) => {
+        fetchCurrentWeather(el);
+      });
     }
   });
 
@@ -32,8 +34,6 @@ App.propTypes = {
 };
 
 export default App;
-
-// TODO: Добавить функционал одновления выбранного города
 
 // FIXME: Название города при поиске отличается от того названия которое прилетает из bd, запись в LS нужно сделать из ответа сервера
 

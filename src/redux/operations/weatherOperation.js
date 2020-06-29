@@ -6,6 +6,9 @@ import {
   feachWeatherStart,
   feachWeatherSuccsess,
   feachWeatherError,
+  feachUpdateStart,
+  feachUpdateSuccsess,
+  feachUpdateError,
 } from '../actions/actionCurrentWeather';
 
 import {
@@ -27,6 +30,18 @@ export const fetchCurrentWeather = (queryWeather) => (dispatch) => {
       dispatch(feachWeatherSuccsess(createCurrentWeatherObject(data))),
     )
     .catch((error) => dispatch(feachWeatherError(error)));
+};
+
+export const fetchUpdateWeather = (cityName) => (dispatch) => {
+  dispatch(feachUpdateStart());
+
+  const queryString = `${BASE_URL}/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
+  axios
+    .get(queryString)
+    .then(({ data }) =>
+      dispatch(feachUpdateSuccsess(createCurrentWeatherObject(data))),
+    )
+    .catch((error) => dispatch(feachUpdateError(error)));
 };
 
 export const fetchForecastWeather = (city) => (dispatch) => {

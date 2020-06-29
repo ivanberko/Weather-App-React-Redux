@@ -10,7 +10,11 @@ import {
   boxButton,
 } from './ListCities.module.css';
 
-const ListCities = ({ listCitiesWeather, onDeleteCity }) => {
+const ListCities = ({
+  listCitiesWeather,
+  onDeleteCity,
+  fetchUpdateWeather,
+}) => {
   const handleDeleteCity = (dt, name) => {
     const getCitiesFronLS = JSON.parse(localStorage.getItem('cities'));
     const updateCitiesFronLS = getCitiesFronLS.filter(
@@ -19,6 +23,11 @@ const ListCities = ({ listCitiesWeather, onDeleteCity }) => {
     localStorage.setItem('cities', JSON.stringify(updateCitiesFronLS));
     onDeleteCity(dt);
   };
+
+  const handleUpdate = (nameCity) => {
+    fetchUpdateWeather(nameCity);
+  };
+
   return listCitiesWeather.map(
     ({ dt, name, month, date, dayOfWeek, temp, icon }) => (
       <li className={listItem} key={dt}>
@@ -31,7 +40,11 @@ const ListCities = ({ listCitiesWeather, onDeleteCity }) => {
           <p className={tempItem}>{temp}&deg;</p>
         </NavLink>
         <div className={boxButton}>
-          <button type="button" className={itemBtnUpdate}></button>
+          <button
+            type="button"
+            className={itemBtnUpdate}
+            onClick={() => handleUpdate(name)}
+          ></button>
           <button
             type="button"
             className={itemBtnDelete}
