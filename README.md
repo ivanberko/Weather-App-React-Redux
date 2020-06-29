@@ -2,6 +2,8 @@
 
 # [Demo](https://ivan-berk-weather-app-react-redux.netlify.app/)
 
+![Weather App Demo](demo/demo.gif)
+
 # Technology used
 
 - React
