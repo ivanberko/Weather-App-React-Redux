@@ -3,7 +3,7 @@ export const TypeCity = {
   UPDATE_CITY: 'UPDATE_CITY',
 };
 
-export const deleteCity = (dt) => ({
+export const deleteCity = (name) => ({
   type: TypeCity.DELETE_CITY,
-  payload: dt,
+  payload: name,
 });

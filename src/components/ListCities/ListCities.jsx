@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import {
   linkItem,
@@ -15,13 +15,18 @@ const ListCities = ({
   onDeleteCity,
   fetchUpdateWeather,
 }) => {
-  const handleDeleteCity = (dt, name) => {
-    const getCitiesFronLS = JSON.parse(localStorage.getItem('cities'));
-    const updateCitiesFronLS = getCitiesFronLS.filter(
-      (el) => el !== name.toLowerCase(),
-    );
+  useEffect(() => {
+    const allСities = listCitiesWeather.map((el) => el.name);
+    if (listCitiesWeather.length) {
+      localStorage.setItem('cities', JSON.stringify(allСities));
+    }
+  });
+
+  const handleDeleteCity = (name) => {
+    const getCitiesFromLS = JSON.parse(localStorage.getItem('cities'));
+    const updateCitiesFronLS = getCitiesFromLS.filter((el) => el !== name);
     localStorage.setItem('cities', JSON.stringify(updateCitiesFronLS));
-    onDeleteCity(dt);
+    onDeleteCity(name);
   };
 
   const handleUpdate = (nameCity) => {
@@ -48,7 +53,7 @@ const ListCities = ({
           <button
             type="button"
             className={itemBtnDelete}
-            onClick={() => handleDeleteCity(dt, name)}
+            onClick={() => handleDeleteCity(name)}
           ></button>
         </div>
       </li>

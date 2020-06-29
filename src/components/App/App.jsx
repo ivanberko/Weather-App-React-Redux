@@ -1,18 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 // page
-import HomePage from '../../pages/HomePage/HomePage';
-import DetailsPage from '../../pages/DetailsPage/feachForecastContainer';
+
+const HomePage = lazy(() =>
+  import('../../pages/HomePage/HomePage' /* webpackChunkName: "home-page" */),
+);
+
+const DetailsPage = lazy(() =>
+  import(
+    '../../pages/DetailsPage/feachForecastContainer' /* webpackChunkName: "details-page" */
+  ),
+);
 
 const App = ({ fetchCurrentWeather }) => {
   useEffect(() => {
     const persistedCities = localStorage.getItem('cities');
     if (persistedCities) {
       const cities = JSON.parse(persistedCities);
-      cities.forEach((el) => {
+      cities.reverse().forEach((el) => {
         fetchCurrentWeather(el);
       });
     }
@@ -20,11 +28,13 @@ const App = ({ fetchCurrentWeather }) => {
 
   return (
     <main>
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/details/:city" component={DetailsPage} />
-        <Redirect to="/" />
-      </Switch>
+      <Suspense fallback={<h1>LOADING....</h1>}>
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/details/:city" component={DetailsPage} />
+          <Redirect to="/" />
+        </Switch>
+      </Suspense>
     </main>
   );
 };
@@ -34,7 +44,5 @@ App.propTypes = {
 };
 
 export default App;
-
-// FIXME: Название города при поиске отличается от того названия которое прилетает из bd, запись в LS нужно сделать из ответа сервера
 
 // TODO: Сделать деплой на Netlify

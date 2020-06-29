@@ -5,11 +5,16 @@ import { TypeCity } from '../actions/actionItemCity';
 
 const cityWeather = (state = [], { type, payload }) => {
   switch (type) {
-    case TypeCurrent.FEACH_WEATHER_SUCCESS:
-      return [payload.data, ...state];
+    case TypeCurrent.FEACH_WEATHER_SUCCESS: {
+      const findSameElem = state.some((el) => el.name === payload.data.name);
+      if (!findSameElem) {
+        return [payload.data, ...state];
+      }
+      return state;
+    }
 
     case TypeCity.DELETE_CITY:
-      return state.filter((city) => city.dt !== payload);
+      return state.filter((city) => city.name !== payload);
 
     case TypeCurrent.FEACH_UPDATE_SUCCESS:
       return state.map((el) =>

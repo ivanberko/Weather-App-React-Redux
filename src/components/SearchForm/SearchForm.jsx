@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { searchForm, searchInput, searchBtn } from './SearchForm.module.css';
-import { setLocalStorageCity } from '../../utils/helpers';
 
 const SearchForm = ({ fetchCurrentWeather }) => {
   const [query, setQuery] = useState('');
@@ -10,18 +9,11 @@ const SearchForm = ({ fetchCurrentWeather }) => {
   const handleChenge = ({ target: { value } }) => {
     setQuery(value);
   };
-  // FIXME: Перенести добавление города в LS в App, данные нужно брать из store
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const queryToLowerCase = query.toLowerCase();
-    const getCitiesLS = JSON.parse(localStorage.getItem('cities'));
-    if (queryToLowerCase) {
-      if (getCitiesLS === null) {
-        fetchCurrentWeather(queryToLowerCase);
-      } else if (!getCitiesLS.includes(queryToLowerCase)) {
-        fetchCurrentWeather(queryToLowerCase);
-      }
-      setLocalStorageCity(queryToLowerCase);
+    if (query) {
+      fetchCurrentWeather(query);
       setQuery('');
     }
   };
