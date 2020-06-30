@@ -13,6 +13,15 @@
   width: 150px;
   border: 1px solid #313131;
   border-radius: 5px;
+  text-decoration: none;
+  color: #313131;
+}
+
+.listItemActive {
+  border: 1px solid #ec6e4c;
+  box-shadow: inset 0px 0px 4px 1px #ec6e4c;
+  color: #ec6e4c;
+  font-weight: 700;
 }
 
 .titleItem,

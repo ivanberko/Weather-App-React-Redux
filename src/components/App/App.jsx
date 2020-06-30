@@ -43,5 +43,3 @@ App.propTypes = {
 };
 
 export default App;
-
-// TODO: Сделать деплой на Netlify

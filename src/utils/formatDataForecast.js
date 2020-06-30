@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { v4 as uuidv4 } from 'uuid';
 
 const getDayNumber = (element) => {
   const ms = element * 1000;
@@ -24,7 +23,7 @@ export const forecast = (response) => {
 export const modifyResponse = (list) => {
   return list.map((day) => {
     const dayForecast = {
-      id: uuidv4(),
+      dt: day[0].dt,
       dayOfWeek: '',
       date: '',
       month: '',
@@ -62,5 +61,18 @@ export const modifyResponse = (list) => {
     dayForecast.tempMax = Math.round(Math.max(...dayForecast.tempMax));
 
     return dayForecast;
+  });
+};
+
+export const modifyMoreInfo = (arr) => {
+  return arr.map((el) => {
+    return {
+      time: moment(el.dt * 1000).format('LT'),
+      temp: Math.round(el.main?.temp),
+      pressure: el.main.pressure,
+      humidity: el.main.humidity,
+      wind: Math.round(el.wind.speed),
+      icon: `http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`,
+    };
   });
 };
