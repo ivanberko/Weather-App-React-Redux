@@ -12,7 +12,7 @@ const Notification = ({ text }) => {
 };
 
 Notification.defaultProps = {
-  text: 'ERROR!!!',
+  text: null,
 };
 
 Notification.propTypes = {

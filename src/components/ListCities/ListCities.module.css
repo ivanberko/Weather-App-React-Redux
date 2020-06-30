@@ -9,6 +9,7 @@
   width: 150px;
   border: 1px solid #313131;
   border-radius: 5px;
+  color: #ec6e4c;
 }
 
 .listItem:not(:last-child) {
@@ -53,9 +54,9 @@
 }
 
 .itemBtnDelete:hover {
-  background-color: rgb(218, 56, 56);
+  background-color: #ec6e4c;
 }
 
 .itemBtnUpdate:hover {
-  background-color: rgb(218, 56, 56);
+  background-color: #ec6e4c;
 }

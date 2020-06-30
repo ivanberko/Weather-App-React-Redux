@@ -17,15 +17,16 @@
 }
 
 .searchBtn {
-  width: 10%;
-  height: 32px;
-  padding: 0;
-  border: none;
-  background-color: rgb(36, 36, 36);
+  width: 30px;
+  height: 30px;
+  border: 1px solid #313131;
+  border-radius: 50%;
+  background-color: #ec6e4c;
   background-image: url(../../img/icon/target.png);
   background-size: 25px;
   background-position: center;
   background-repeat: no-repeat;
   outline: none;
   cursor: pointer;
+  margin: 2px 0;
 }

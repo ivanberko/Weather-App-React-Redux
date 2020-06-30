@@ -4,7 +4,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 // page
 const HomePage = lazy(() =>
-  import('../../pages/HomePage/HomePage' /* webpackChunkName: "home-page" */),
+  import(
+    '../../pages/HomePage/homePageContainer' /* webpackChunkName: "home-page" */
+  ),
 );
 
 const DetailsPage = lazy(() =>

@@ -8,6 +8,7 @@ import {
   boxTemp,
   listCities,
   btnGoBack,
+  titleDetailsPage,
 } from './ListCitiesDetails.module.css';
 
 import { modifyResponse } from '../../utils/formatDataForecast';
@@ -18,7 +19,7 @@ const ListCitiesDetails = ({ dayForecast, city, handleGoBack }) => {
 
   return (
     <>
-      <h1 className={titleItem}> Forecast Weather</h1>
+      <h1 className={titleDetailsPage}> Forecast Weather</h1>
       <h2 className={titleItem}>{city}</h2>
       <button type="button" className={btnGoBack} onClick={handleGoBack}>
         &#9668; Back

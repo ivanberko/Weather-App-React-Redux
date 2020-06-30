@@ -15,10 +15,15 @@
   border-radius: 5px;
 }
 
-.titleItem {
+.titleItem,
+.titleDetailsPage {
   margin: 0;
   font-size: 32px;
   margin-bottom: 6px;
+}
+
+.titleDetailsPage {
+  color: #ec6e4c;
 }
 
 .tempItem {
@@ -32,10 +37,10 @@
 }
 
 .btnGoBack {
-  text-align: center;
-  border: none;
+  transform: translateX(-370px);
+  border: 1px solid #ec6e4c;
   background-color: #fff;
-  color: rgb(218, 56, 56);
+  color: #ec6e4c;
   font-weight: 700;
   border-radius: 5px;
   padding: 4px 16px;
@@ -46,6 +51,6 @@
 }
 
 .btnGoBack:hover {
-  background-color: rgb(218, 56, 56);
-  color: #fff;
+  background-color: #ec6e4c;
+  color: #313131;
 }

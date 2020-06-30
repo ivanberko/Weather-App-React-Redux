@@ -3,3 +3,9 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.titleHomePage {
+  margin: 0;
+  margin-bottom: 20px;
+  color: #ec6e4c;
+}
