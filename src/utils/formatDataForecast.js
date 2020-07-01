@@ -67,6 +67,7 @@ export const modifyResponse = (list) => {
 export const modifyMoreInfo = (arr) => {
   return arr.map((el) => {
     return {
+      key: el.dt,
       time: moment(el.dt * 1000).format('LT'),
       temp: Math.round(el.main?.temp),
       pressure: el.main.pressure,
