@@ -15,6 +15,18 @@ const DetailsPage = lazy(() =>
   ),
 );
 
+const LoginPage = lazy(() =>
+  import(
+    '../../pages/LoginPage/LoginPage' /* webpackChunkName: "login-page" */
+  ),
+);
+
+const SignupPage = lazy(() =>
+  import(
+    '../../pages/SignupPage/SignupPage' /* webpackChunkName: "signup-page" */
+  ),
+);
+
 const App = ({ fetchCurrentWeather }) => {
   useEffect(() => {
     const persistedCities = localStorage.getItem('cities');
@@ -31,6 +43,8 @@ const App = ({ fetchCurrentWeather }) => {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/details/:city" component={DetailsPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignupPage} />
           <Redirect to="/" />
         </Switch>
       </Suspense>
