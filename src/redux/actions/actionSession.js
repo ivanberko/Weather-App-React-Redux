@@ -10,16 +10,16 @@ export const TypeSession = {
   LOGOUT: 'LOGOUT',
 };
 
-export const logitRequest = () => ({
+export const loginRequest = () => ({
   type: TypeSession.LOGIN_REQUEST,
 });
 
-export const logitSuccess = (res) => ({
+export const loginSuccess = (res) => ({
   type: TypeSession.LOGIN_SUCCESS,
   payload: { res },
 });
 
-export const logitError = (error) => ({
+export const loginError = (error) => ({
   type: TypeSession.LOGIN_ERROR,
   payload: { error },
 });

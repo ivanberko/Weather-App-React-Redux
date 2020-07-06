@@ -20,7 +20,7 @@ const ListCities = ({
     if (listCitiesWeather.length) {
       localStorage.setItem('cities', JSON.stringify(allСities));
     }
-  });
+  }, [listCitiesWeather]);
 
   const handleDeleteCity = (name) => {
     const getCitiesFromLS = JSON.parse(localStorage.getItem('cities'));

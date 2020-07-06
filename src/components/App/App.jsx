@@ -2,6 +2,9 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
+// components
+import Navigation from '../Navigation/Navigation';
+
 // page
 const HomePage = lazy(() =>
   import(
@@ -27,7 +30,7 @@ const SignupPage = lazy(() =>
   ),
 );
 
-const App = ({ fetchCurrentWeather }) => {
+const App = ({ fetchCurrentWeather, authenticated }) => {
   useEffect(() => {
     const persistedCities = localStorage.getItem('cities');
     if (persistedCities) {
@@ -39,6 +42,7 @@ const App = ({ fetchCurrentWeather }) => {
   });
   return (
     <main>
+      <Navigation authenticated={authenticated} />
       <Suspense fallback={<h1>LOADING....</h1>}>
         <Switch>
           <Route path="/" exact component={HomePage} />
@@ -54,6 +58,7 @@ const App = ({ fetchCurrentWeather }) => {
 
 App.propTypes = {
   fetchCurrentWeather: PropTypes.func.isRequired,
+  authenticated: PropTypes.bool.isRequired,
 };
 
 export default App;
