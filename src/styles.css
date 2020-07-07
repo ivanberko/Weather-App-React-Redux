@@ -28,6 +28,12 @@ main {
   padding-bottom: 16px;
 }
 
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
 img {
   display: block;
   max-width: 100%;

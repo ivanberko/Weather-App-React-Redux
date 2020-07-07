@@ -2,8 +2,8 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-// components
-import Navigation from '../Navigation/Navigation';
+// containers
+import AppBar from '../AppBar/AppBarContainer';
 
 // page
 const HomePage = lazy(() =>
@@ -20,17 +20,17 @@ const DetailsPage = lazy(() =>
 
 const LoginPage = lazy(() =>
   import(
-    '../../pages/LoginPage/LoginPage' /* webpackChunkName: "login-page" */
+    '../../pages/LoginPage/LoginPageContainer' /* webpackChunkName: "login-page" */
   ),
 );
 
 const SignupPage = lazy(() =>
   import(
-    '../../pages/SignupPage/SignupPage' /* webpackChunkName: "signup-page" */
+    '../../pages/SignupPage/SignupPageContainer' /* webpackChunkName: "signup-page" */
   ),
 );
 
-const App = ({ fetchCurrentWeather, authenticated }) => {
+const App = ({ fetchCurrentWeather }) => {
   useEffect(() => {
     const persistedCities = localStorage.getItem('cities');
     if (persistedCities) {
@@ -42,7 +42,7 @@ const App = ({ fetchCurrentWeather, authenticated }) => {
   });
   return (
     <main>
-      <Navigation authenticated={authenticated} />
+      <AppBar />
       <Suspense fallback={<h1>LOADING....</h1>}>
         <Switch>
           <Route path="/" exact component={HomePage} />
@@ -58,7 +58,6 @@ const App = ({ fetchCurrentWeather, authenticated }) => {
 
 App.propTypes = {
   fetchCurrentWeather: PropTypes.func.isRequired,
-  authenticated: PropTypes.bool.isRequired,
 };
 
 export default App;

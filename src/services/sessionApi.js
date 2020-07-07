@@ -3,7 +3,7 @@ export default {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
-          user: {},
+          user: { ...credentials },
           token: 'unique-jwt-token',
         });
       }, 300);
@@ -13,7 +13,7 @@ export default {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
-          user: {},
+          user: { ...credentials },
           token: 'unique-jwt-token',
         });
       }, 300);

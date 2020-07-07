@@ -14,6 +14,7 @@ const ListCities = ({
   listCitiesWeather,
   onDeleteCity,
   fetchUpdateWeather,
+  authenticated,
 }) => {
   useEffect(() => {
     const allСities = listCitiesWeather.map((el) => el.name);
@@ -36,7 +37,10 @@ const ListCities = ({
   return listCitiesWeather.map(
     ({ dt, name, month, date, dayOfWeek, temp, icon }) => (
       <li className={listItem} key={dt}>
-        <NavLink to={`/details/${name}`} className={linkItem}>
+        <NavLink
+          to={authenticated ? `/details/${name}` : `/`}
+          className={linkItem}
+        >
           <h2 className={titleItem}>{name}</h2>
           <div>
             <span>{month}</span> <span>{date}</span>, <span>{dayOfWeek}</span>

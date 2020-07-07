@@ -2,10 +2,25 @@ import {
   loginRequest,
   loginSuccess,
   loginError,
+  signupRequest,
+  signupSuccess,
+  signupError,
 } from '../actions/actionSession';
 import sessionApi from '../../services/sessionApi';
 
-const login = (credentials) => (dispatch) => {
+export const signup = (credentials) => (dispatch) => {
+  dispatch(signupRequest());
+  sessionApi
+    .signup(credentials)
+    .then((res) => {
+      dispatch(signupSuccess(res));
+    })
+    .catch((error) => {
+      dispatch(signupError(error));
+    });
+};
+
+export const login = (credentials) => (dispatch) => {
   dispatch(loginRequest());
   sessionApi
     .login(credentials)
@@ -16,5 +31,3 @@ const login = (credentials) => (dispatch) => {
       dispatch(loginError(error));
     });
 };
-
-export default login;

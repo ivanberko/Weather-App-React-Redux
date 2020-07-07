@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import styled from 'styled-components';
 
 const StyledLabel = styled.label`
@@ -11,10 +9,7 @@ const StyledLabel = styled.label`
   margin-bottom: 20px;
 `;
 
+// eslint-disable-next-line react/prop-types
 const Label = ({ children }) => <StyledLabel>{children}</StyledLabel>;
-
-Label.propTypes = {
-  children: PropTypes.element.isRequired,
-};
 
 export default Label;

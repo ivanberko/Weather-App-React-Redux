@@ -24,6 +24,20 @@ export const loginError = (error) => ({
   payload: { error },
 });
 
+export const signupRequest = () => ({
+  type: TypeSession.SIGNUP_REQUEST,
+});
+
+export const signupSuccess = (res) => ({
+  type: TypeSession.SIGNUP_SUCCESS,
+  payload: { res },
+});
+
+export const signupError = (error) => ({
+  type: TypeSession.SIGNUP_ERROR,
+  payload: { error },
+});
+
 export const logOut = () => ({
   type: TypeSession.LOGOUT,
 });

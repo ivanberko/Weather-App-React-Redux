@@ -5,16 +5,18 @@ import Form from '../shared/Form';
 import Label from '../shared/Label';
 import Input from '../shared/Input';
 import Button from '../shared/Button';
-import { login } from '../../redux/operations/sessionOperation';
+import { signup } from '../../redux/operations/sessionOperation';
 
 const LoginForm = ({ onLogin }) => {
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({ name, password });
+    onLogin({ name, email, password });
     setName('');
+    setEmail('');
     setPassword('');
   };
 
@@ -31,6 +33,17 @@ const LoginForm = ({ onLogin }) => {
         />
       </Label>
       <Label>
+        Email
+        <Input
+          type="email"
+          value={email}
+          name="email"
+          onChange={({ target: { value } }) => {
+            setEmail(value);
+          }}
+        />
+      </Label>
+      <Label>
         Password
         <Input
           type="password"
@@ -41,13 +54,13 @@ const LoginForm = ({ onLogin }) => {
           }}
         />
       </Label>
-      <Button label="Log In" type="submit" />
+      <Button label="Sign up" type="submit" />
     </Form>
   );
 };
 
 const mapDispatchToProps = {
-  onLogin: login,
+  onLogin: signup,
 };
 
 LoginForm.propTypes = {
