@@ -8,25 +8,25 @@ import Button from '../shared/Button';
 import { login } from '../../redux/operations/sessionOperation';
 
 const LoginForm = ({ onLogin }) => {
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({ name, password });
-    setName('');
+    onLogin({ email, password });
+    setEmail('');
     setPassword('');
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
-        Name
+        Email
         <Input
-          value={name}
+          value={email}
           name="name"
           onChange={({ target: { value } }) => {
-            setName(value);
+            setEmail(value);
           }}
         />
       </Label>
