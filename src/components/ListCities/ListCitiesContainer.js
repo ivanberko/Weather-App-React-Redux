@@ -3,9 +3,10 @@ import ListCities from './ListCities';
 import { fetchUpdateWeather } from '../../redux/operations/weatherOperation';
 import { deleteCity } from '../../redux/actions/actionItemCity';
 import { getIsAuthenticated } from '../../redux/sessionSelectors/sessionSelectors';
+import { getAllCitiesWeather } from '../../redux/weatherSelectors/weatherSelectors';
 
 const mapStateToProps = (state) => ({
-  listCitiesWeather: state.dataWeather.listCitiesWeather,
+  listCitiesWeather: getAllCitiesWeather(state),
   authenticated: getIsAuthenticated(state),
 });
 

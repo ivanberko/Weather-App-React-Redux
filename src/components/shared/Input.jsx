@@ -5,9 +5,8 @@ import styled from 'styled-components';
 
 const StyledInput = styled.input`
   color: #171718;
-  font: inherit;
-  font-size: 1.2rem;
-  padding: 8px;
+  font-size: 18px;
+  padding: 4px;
   border-radius: 4px;
   border: 1px solid #bdbdbd;
   width: 100%;
