@@ -22,16 +22,20 @@ const LoginPage = ({
 
     if (authenticated) {
       history.replace('/');
-    } else {
-      if (invalidData) {
-        setIsNotify(true);
-        setTimeout(() => {
-          setIsNotify(false);
-          notifyErrorSession(null);
-        }, 2000);
-      }
+    } else if (invalidData) {
+      setIsNotify(true);
+      setTimeout(() => {
+        setIsNotify(false);
+        notifyErrorSession(null);
+      }, 2000);
     }
-  }, [authenticated, history, invalidData, notifyErrorWeather]);
+  }, [
+    authenticated,
+    history,
+    invalidData,
+    notifyErrorWeather,
+    notifyErrorSession,
+  ]);
 
   return (
     <section>

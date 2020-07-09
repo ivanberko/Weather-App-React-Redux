@@ -66,7 +66,7 @@ const LoginForm = ({ onLogin, invalidData }) => {
 
 const mapDispatchToProps = {
   onLogin: signup,
-  invalidData: invalidData,
+  invalidData,
 };
 
 LoginForm.propTypes = {
