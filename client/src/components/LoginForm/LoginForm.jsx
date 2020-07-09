@@ -6,16 +6,21 @@ import Label from '../shared/Label';
 import Input from '../shared/Input';
 import Button from '../shared/Button';
 import { login } from '../../redux/operations/sessionOperation';
+import { invalidData } from '../../redux/actions/actionSession';
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = ({ onLogin, invalidData }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({ email, password });
-    setEmail('');
-    setPassword('');
+    if (email && password) {
+      onLogin({ email, password });
+      setEmail('');
+      setPassword('');
+    } else {
+      invalidData('Invalid data !');
+    }
   };
 
   return (
@@ -48,6 +53,7 @@ const LoginForm = ({ onLogin }) => {
 
 const mapDispatchToProps = {
   onLogin: login,
+  invalidData: invalidData,
 };
 
 LoginForm.propTypes = {

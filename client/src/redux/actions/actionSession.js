@@ -8,6 +8,7 @@ export const TypeSession = {
   SIGNUP_ERROR: 'SIGNUP_ERROR',
 
   LOGOUT: 'LOGOUT',
+  INVALID_DATA: 'INVALID_DATA',
 };
 
 export const loginRequest = () => ({
@@ -40,4 +41,9 @@ export const signupError = (error) => ({
 
 export const logOut = () => ({
   type: TypeSession.LOGOUT,
+});
+
+export const invalidData = (error) => ({
+  type: TypeSession.INVALID_DATA,
+  payload: error,
 });

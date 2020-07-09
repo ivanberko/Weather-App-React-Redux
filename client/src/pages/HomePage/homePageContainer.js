@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
 import HomePage from './HomePage';
+import { invalidData } from '../../redux/actions/actionSession';
+import { getNotifyError } from '../../redux/weatherSelectors/weatherSelectors';
 
 const mapStateToProps = (state) => ({
-  notifyError: state.dataWeather.notifyError,
+  notifyError: getNotifyError(state),
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  errorSession: invalidData,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

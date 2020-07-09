@@ -8,6 +8,7 @@ const user = (state = null, { type, payload }) => {
       return payload.res.user;
 
     case TypeSession.LOGOUT:
+    case TypeSession.INVALID_DATA:
       return null;
 
     default:
@@ -22,6 +23,7 @@ const token = (state = null, { type, payload }) => {
       return payload.res.token;
 
     case TypeSession.LOGOUT:
+    case TypeSession.INVALID_DATA:
       return null;
 
     default:
@@ -48,6 +50,14 @@ const error = (state = null, { type, payload }) => {
     case TypeSession.LOGIN_ERROR:
     case TypeSession.SIGNUP_ERROR:
       return payload.error;
+
+    case TypeSession.INVALID_DATA:
+      return payload;
+
+    case TypeSession.LOGIN_SUCCESS:
+    case TypeSession.SIGNUP_SUCCESS:
+      return null;
+
     default:
       return state;
   }

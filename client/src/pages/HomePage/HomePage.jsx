@@ -10,17 +10,18 @@ import ListCities from '../../components/ListCities/ListCitiesContainer';
 import SearchForm from '../../components/SearchForm/feachWeatherContainer';
 import Notification from '../../components/Notification/Notification';
 
-const HomePage = ({ notifyError }) => {
+const HomePage = ({ notifyError, errorSession }) => {
   const [isNotify, setIsNotify] = useState(false);
 
   useEffect(() => {
+    errorSession(null);
     if (notifyError) {
       setIsNotify(true);
       setTimeout(() => {
         setIsNotify(false);
       }, 2000);
     }
-  }, [notifyError]);
+  }, [notifyError, errorSession]);
 
   return (
     <>

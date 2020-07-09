@@ -12,7 +12,7 @@ const StyledInput = styled.input`
   width: 100%;
   outline: 0;
   &:focus {
-    border: 1px solid #2b32b2;
+    border: 1px solid #313131;
   }
 `;
 

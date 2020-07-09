@@ -41,6 +41,7 @@ const notifyErrorReducer = (state = null, { type, payload }) => {
     case TypeCurrent.FEACH_UPDATE_START:
     case TypeCurrent.FEACH_WEATHER_START:
     case TypeForecast.FEACH_FORECAST_SUCCESS:
+    case TypeCity.NOTIFY_ERROR:
       return null;
 
     case TypeCurrent.FEACH_UPDATE_ERROR:
