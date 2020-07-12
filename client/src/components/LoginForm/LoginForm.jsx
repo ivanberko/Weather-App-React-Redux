@@ -8,7 +8,7 @@ import Button from '../shared/Button';
 import { login } from '../../redux/operations/sessionOperation';
 import { invalidData } from '../../redux/actions/actionSession';
 
-const LoginForm = ({ onLogin, invalidData }) => {
+const LoginForm = ({ onLogin, isValidData }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,7 +19,7 @@ const LoginForm = ({ onLogin, invalidData }) => {
       setEmail('');
       setPassword('');
     } else {
-      invalidData('Invalid data !');
+      isValidData('Invalid data !');
     }
   };
 
@@ -53,11 +53,12 @@ const LoginForm = ({ onLogin, invalidData }) => {
 
 const mapDispatchToProps = {
   onLogin: login,
-  invalidData,
+  isValidData: invalidData,
 };
 
 LoginForm.propTypes = {
   onLogin: PropTypes.func.isRequired,
+  isValidData: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(LoginForm);

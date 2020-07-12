@@ -48,6 +48,7 @@ HomePage.defaultProps = {
 
 HomePage.propTypes = {
   notifyError: PropTypes.string,
+  errorSession: PropTypes.func.isRequired,
 };
 
 export default HomePage;

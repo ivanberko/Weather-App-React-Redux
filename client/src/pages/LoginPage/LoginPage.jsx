@@ -58,8 +58,15 @@ const LoginPage = ({
   );
 };
 
+LoginPage.defaultProps = {
+  invalidData: null,
+};
+
 LoginPage.propTypes = {
   authenticated: PropTypes.bool.isRequired,
+  invalidData: PropTypes.string,
+  notifyErrorWeather: PropTypes.func.isRequired,
+  notifyErrorSession: PropTypes.func.isRequired,
 };
 
 export default LoginPage;

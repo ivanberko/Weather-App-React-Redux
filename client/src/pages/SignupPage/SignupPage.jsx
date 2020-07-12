@@ -58,8 +58,15 @@ const SignupPage = ({
   );
 };
 
+SignupPage.defaultProps = {
+  invalidData: null,
+};
+
 SignupPage.propTypes = {
   authenticated: PropTypes.bool.isRequired,
+  invalidData: PropTypes.string,
+  notifyErrorWeather: PropTypes.func.isRequired,
+  notifyErrorSession: PropTypes.func.isRequired,
 };
 
 export default SignupPage;
