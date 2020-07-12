@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   loginRequest,
   loginSuccess,
@@ -6,15 +7,12 @@ import {
   signupSuccess,
   signupError,
 } from '../actions/actionSession';
-import sessionApi from '../../services/sessionApi';
 
 export const signup = (credentials) => (dispatch) => {
   dispatch(signupRequest());
-  sessionApi
-    .signup(credentials)
-    .then((res) => {
-      dispatch(signupSuccess(res));
-    })
+  axios
+    .post('http://localhost:4040/auth/signup', credentials)
+    .then((res) => dispatch(signupSuccess(res.data)))
     .catch((error) => {
       dispatch(signupError(error));
     });
@@ -22,11 +20,9 @@ export const signup = (credentials) => (dispatch) => {
 
 export const login = (credentials) => (dispatch) => {
   dispatch(loginRequest());
-  sessionApi
-    .login(credentials)
-    .then((res) => {
-      dispatch(loginSuccess(res));
-    })
+  axios
+    .post('http://localhost:4040/auth/signin', credentials)
+    .then((res) => dispatch(loginSuccess(res.data)))
     .catch((error) => {
       dispatch(loginError(error));
     });
