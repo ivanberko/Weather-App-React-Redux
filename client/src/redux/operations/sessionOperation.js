@@ -8,10 +8,12 @@ import {
   signupError,
 } from '../actions/actionSession';
 
+axios.defaults.baseURL = 'http://localhost:4040';
+
 export const signup = (credentials) => (dispatch) => {
   dispatch(signupRequest());
   axios
-    .post('http://localhost:4040/auth/signup', credentials)
+    .post('/auth/signup', credentials)
     .then((res) => dispatch(signupSuccess(res.data)))
     .catch((error) => {
       dispatch(signupError(error));
@@ -21,7 +23,7 @@ export const signup = (credentials) => (dispatch) => {
 export const login = (credentials) => (dispatch) => {
   dispatch(loginRequest());
   axios
-    .post('http://localhost:4040/auth/signin', credentials)
+    .post('/auth/signin', credentials)
     .then((res) => dispatch(loginSuccess(res.data)))
     .catch((error) => {
       dispatch(loginError(error));
