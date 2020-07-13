@@ -30,8 +30,9 @@ const SignupPage = lazy(() =>
   ),
 );
 
-const App = ({ fetchCurrentWeather }) => {
+const App = ({ fetchCurrentWeather, refreshUser }) => {
   useEffect(() => {
+    refreshUser();
     const persistedCities = localStorage.getItem('cities');
     if (persistedCities) {
       const cities = JSON.parse(persistedCities);
@@ -58,6 +59,7 @@ const App = ({ fetchCurrentWeather }) => {
 
 App.propTypes = {
   fetchCurrentWeather: PropTypes.func.isRequired,
+  refreshUser: PropTypes.func.isRequired,
 };
 
 export default App;

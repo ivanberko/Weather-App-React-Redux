@@ -4,12 +4,12 @@ import AppBar from './AppBar';
 
 import {
   getIsAuthenticated,
-  getUserName,
+  getUser,
 } from '../../redux/sessionSelectors/sessionSelectors';
 
 const mapStateToProps = (state) => ({
   authenticated: getIsAuthenticated(state),
-  userName: getUserName(state),
+  userName: getUser(state),
 });
 
 const mapDispatchToProps = {

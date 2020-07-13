@@ -7,6 +7,9 @@ const user = (state = null, { type, payload }) => {
     case TypeSession.SIGNUP_SUCCESS:
       return payload.res.user;
 
+    case TypeSession.REFRESH_USER_SUCCESS:
+      return payload.res.data;
+
     case TypeSession.LOGOUT:
       return null;
 
@@ -33,6 +36,7 @@ const authenticated = (state = false, { type, payload }) => {
   switch (type) {
     case TypeSession.LOGIN_SUCCESS:
     case TypeSession.SIGNUP_SUCCESS:
+    case TypeSession.REFRESH_USER_SUCCESS:
       return true;
 
     case TypeSession.LOGOUT:
@@ -47,12 +51,14 @@ const error = (state = null, { type, payload }) => {
   switch (type) {
     case TypeSession.LOGIN_ERROR:
     case TypeSession.SIGNUP_ERROR:
+    case TypeSession.REFRESH_USER_ERROR:
       return payload.error.message;
 
     case TypeSession.INVALID_DATA:
       return payload;
 
     case TypeSession.LOGIN_SUCCESS:
+    case TypeSession.REFRESH_USER_SUCCESS:
     case TypeSession.SIGNUP_SUCCESS:
       return null;
 

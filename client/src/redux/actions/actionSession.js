@@ -7,9 +7,27 @@ export const TypeSession = {
   SIGNUP_SUCCESS: 'SIGNUP_SUCCESS',
   SIGNUP_ERROR: 'SIGNUP_ERROR',
 
+  REFRESH_USER_REQUEST: 'REFRESH_USER_REQUEST',
+  REFRESH_USER_SUCCESS: 'REFRESH_USER_SUCCESS',
+  REFRESH_USER_ERROR: 'REFRESH_USER_ERROR',
+
   LOGOUT: 'LOGOUT',
   INVALID_DATA: 'INVALID_DATA',
 };
+
+export const refreshUserRequest = () => ({
+  type: TypeSession.REFRESH_USER_REQUEST,
+});
+
+export const refreshUserSuccess = (res) => ({
+  type: TypeSession.REFRESH_USER_SUCCESS,
+  payload: { res },
+});
+
+export const refreshUserError = (error) => ({
+  type: TypeSession.REFRESH_USER_ERROR,
+  payload: { error },
+});
 
 export const loginRequest = () => ({
   type: TypeSession.LOGIN_REQUEST,

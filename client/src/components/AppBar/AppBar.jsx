@@ -13,11 +13,13 @@ const AppBar = ({ userName, authenticated, onLogOut }) => (
 );
 
 AppBar.defaultProps = {
-  userName: 'guest',
+  userName: null,
 };
 
 AppBar.propTypes = {
-  userName: PropTypes.string,
+  userName: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }),
   authenticated: PropTypes.bool.isRequired,
   onLogOut: PropTypes.func.isRequired,
 };

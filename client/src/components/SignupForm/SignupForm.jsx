@@ -8,7 +8,7 @@ import Button from '../shared/Button';
 import { signup } from '../../redux/operations/sessionOperation';
 import { invalidData } from '../../redux/actions/actionSession';
 
-const LoginForm = ({ onLogin, isValidData }) => {
+const SignupForm = ({ onLogin, isValidData }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -69,9 +69,9 @@ const mapDispatchToProps = {
   isValidData: invalidData,
 };
 
-LoginForm.propTypes = {
+SignupForm.propTypes = {
   onLogin: PropTypes.func.isRequired,
   isValidData: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default connect(null, mapDispatchToProps)(SignupForm);

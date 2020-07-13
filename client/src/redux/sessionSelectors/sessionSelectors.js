@@ -4,6 +4,4 @@ export const getToken = (state) => state.session.token;
 
 export const getUser = (state) => state.session.user;
 
-export const getUserName = (state) => state.session.user?.name;
-
 export const getError = (state) => state.session.error;
