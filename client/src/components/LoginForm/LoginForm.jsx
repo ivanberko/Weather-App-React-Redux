@@ -19,7 +19,7 @@ const LoginForm = ({ onLogin, isValidData }) => {
       setEmail('');
       setPassword('');
     } else {
-      isValidData('Invalid data !');
+      isValidData('The form you filled is not valid');
     }
   };
 

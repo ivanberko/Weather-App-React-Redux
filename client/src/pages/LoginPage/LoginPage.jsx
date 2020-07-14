@@ -26,7 +26,9 @@ const LoginPage = ({
       setIsNotify(true);
       setTimeout(() => {
         setIsNotify(false);
-        notifyErrorSession(null);
+        setTimeout(() => {
+          notifyErrorSession(null);
+        }, 500);
       }, 2000);
     }
   }, [

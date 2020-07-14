@@ -19,14 +19,15 @@ const SignupPage = ({
 
   useEffect(() => {
     notifyErrorWeather();
-
     if (authenticated) {
       history.replace('/');
     } else if (invalidData) {
       setIsNotify(true);
       setTimeout(() => {
         setIsNotify(false);
-        notifyErrorSession(null);
+        setTimeout(() => {
+          notifyErrorSession(null);
+        }, 500);
       }, 2000);
     }
   }, [
