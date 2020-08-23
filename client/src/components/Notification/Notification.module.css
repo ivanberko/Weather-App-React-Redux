@@ -1,7 +1,7 @@
 .notify {
   position: absolute;
   right: 0;
-  top: 30;
+  top: 30px;
   text-align: center;
   width: 300px;
   background-color: rgba(236, 110, 76, 0.8);

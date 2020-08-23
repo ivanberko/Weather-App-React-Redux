@@ -19,7 +19,6 @@ const LoginPage = ({
 
   useEffect(() => {
     notifyErrorWeather();
-
     if (authenticated) {
       history.replace('/');
     } else if (invalidData) {
