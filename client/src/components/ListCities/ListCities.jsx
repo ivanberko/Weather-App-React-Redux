@@ -8,6 +8,7 @@ import {
   listItem,
   titleItem,
   tempItem,
+  dateItem,
   itemBtnUpdate,
   itemBtnDelete,
   boxButton,
@@ -65,8 +66,8 @@ const ListCities = ({
               className={linkItem}
             >
               <h2 className={titleItem}>{name}</h2>
-              <div>
-                <span>{month}</span> <span>{date}</span>,{' '}
+              <div className={dateItem}>
+                <span>{month}</span> <span>{date}</span>,
                 <span>{dayOfWeek}</span>
               </div>
               <img src={icon} alt={icon} width="80" />

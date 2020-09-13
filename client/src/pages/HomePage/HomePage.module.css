@@ -5,7 +5,10 @@
 }
 
 .titleHomePage {
+  font-size: 60px;
   margin: 0;
   margin-bottom: 20px;
   color: #ec6e4c;
+  text-shadow: -7px 0px 0 #0c4879, 1px -1px 0 #0c4879, -1px 1px 0 #0c4879,
+    1px 1px 0 #0c4879;
 }

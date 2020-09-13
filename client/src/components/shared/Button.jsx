@@ -7,19 +7,19 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   color: #fff;
-  background-color: #313131;
+  background-color: #0c4879;
   border: 0;
   outline: 0;
-  padding: 8px;
+  padding: 8px 20px;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 1px 1px rgba(12, 72, 121, 0.05);
   font-size: 16px;
   text-transform: uppercase;
   user-select: none;
   transition: background-color 200ms ease-in-out;
   &:hover {
-    box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 1px 1px rgba(12, 72, 121, 0.15);
     background-color: #ec6e4c;
   }
 `;

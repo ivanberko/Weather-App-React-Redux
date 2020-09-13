@@ -1,12 +1,14 @@
 .searchForm {
   margin: 0 auto;
-  width: 400px;
+  width: 50%;
   margin-bottom: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: 2px solid rgb(36, 36, 36);
+  border: 2px solid #0c4879;
   border-radius: 5px;
+  padding: 8px 6px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .searchInput {
@@ -14,18 +16,19 @@
   font-size: 22px;
   outline: none;
   border: none;
+  background-color: transparent;
 }
 
 
 
 .searchBtn {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #313131;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #0c4879;
   border-radius: 50%;
   background-color: #ec6e4c;
   background-image: url(../../img/icon/target.png);
-  background-size: 25px;
+  background-size: 35px;
   background-position: center;
   background-repeat: no-repeat;
   outline: none;

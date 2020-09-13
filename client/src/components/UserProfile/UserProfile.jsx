@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {profile, profileName} from './UserProfile.module.css'
+
 import Button from '../shared/Button';
 
 const UserProfile = ({ userName, onLogOut }) => (
-  <div>
-    <p>
-      Profile, <b>{userName.name}</b>
+  <div className={profile}>
+    <p className={profileName}>
+      Profile <b>&#448;</b> <b>{userName.name}</b>
     </p>
     <Button label="Log Out" onClick={onLogOut} />
   </div>

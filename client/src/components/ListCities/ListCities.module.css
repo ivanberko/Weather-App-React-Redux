@@ -1,15 +1,16 @@
 .linkItem {
   text-decoration: none;
-  color: #313131;
+  color: #000000;
   cursor: pointer;
   margin-right: 1px;
 }
 
 .listItem {
-  width: 150px;
-  border: 1px solid #313131;
+  width: 250px;
+  padding: 10px;
+  border: 2px solid #0c4879;
   border-radius: 5px;
-  color: #ec6e4c;
+  background-color: rgba(20, 116, 195, 0.9);
 }
 
 .listItem:not(:last-child) {
@@ -17,9 +18,9 @@
 }
 
 .titleItem {
+  min-height: 120px;
   margin: 0;
-  font-size: 32px;
-  margin-bottom: 6px;
+  font-size: 40px;
 }
 
 .tempItem {
@@ -27,9 +28,13 @@
   font-size: 32px;
 }
 
+.dateItem {
+  font-size: 20px;
+}
+
 .button {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: none;
   border-radius: 5px;
@@ -45,12 +50,14 @@
 .itemBtnUpdate {
   composes: button;
   background-image: url(../../img/icon/refresh.png);
+  background-size: 70%;
   margin-right: 4px;
 }
 
 .itemBtnDelete {
   composes: button;
   background-image: url(../../img/icon/delete.png);
+  background-size: 70%;
 }
 
 .itemBtnDelete:hover {

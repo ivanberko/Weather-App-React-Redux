@@ -12,10 +12,11 @@
 
 .listItem {
   width: 150px;
-  border: 1px solid #313131;
+  border: 2px solid #0c4879;
+  background-color: rgba(20, 116, 195, 0.9);
   border-radius: 5px;
   text-decoration: none;
-  color: #313131;
+  color: #000;
 }
 
 .listItemActive {
@@ -25,11 +26,21 @@
   font-weight: 700;
 }
 
-.titleItem,
 .titleDetailsPage {
+  font-size: 60px;
   margin: 0;
-  font-size: 32px;
-  margin-bottom: 6px;
+  margin-bottom: 20px;
+  color: #ec6e4c;
+  text-shadow: -7px 0px 0 #0c4879, 1px -1px 0 #0c4879, -1px 1px 0 #0c4879,
+    1px 1px 0 #0c4879;
+}
+
+.titleItem {
+  font-size: 50px;
+  margin: 0;
+  color: #0c4879;
+  text-shadow: 1px -1px 20px #fff, 1px -1px 20px #fff, 1px -1px 20px #fff,
+    1px 1px 20px #fff;
 }
 
 .titleDetailsPage {
