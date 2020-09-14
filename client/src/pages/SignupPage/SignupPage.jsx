@@ -7,6 +7,7 @@ import Notification from '../../components/Notification/Notification';
 import SignupForm from '../../components/SignupForm/SignupForm';
 
 import notifyTransition from '../../components/Notification/notify.module.css';
+import { title, link, redirect } from './SignupPage.module.css';
 
 const SignupPage = ({
   authenticated,
@@ -49,11 +50,13 @@ const SignupPage = ({
         <Notification text={invalidData} />
       </CSSTransition>
 
-      <h2>SignUp Page</h2>
+      <h2 className={title}>SignUp Page</h2>
       <SignupForm />
-      <div>
+      <div className={redirect}>
         <p>or</p>
-        <Link to="/login">Login</Link>
+        <Link to="/login" className={link}>
+          Login &#8594;
+        </Link>
       </div>
     </section>
   );

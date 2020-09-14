@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Notification from '../../components/Notification/Notification';
 
 import notifyTransition from '../../components/Notification/notify.module.css';
+import { title, link, redirect } from './LoginPage.module.css';
 
 const LoginPage = ({
   authenticated,
@@ -49,11 +50,13 @@ const LoginPage = ({
         <Notification text={invalidData} />
       </CSSTransition>
 
-      <h2>Login Page</h2>
+      <h2 className={title}>Login Page</h2>
       <LoginForm />
-      <div>
+      <div className={redirect}>
         <p>or</p>
-        <Link to="/signup">Signup</Link>
+        <NavLink to="/signup" className={link}>
+          Signup &#8594;
+        </NavLink>
       </div>
     </section>
   );
