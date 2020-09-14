@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import React, { useEffect, useState, useCallback } from 'react';
+import { withRouter } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import update from 'immutability-helper';
 import Notification from '../Notification/Notification';
 import notifyTransition from '../../components/Notification/notify.module.css';
-import {
-  linkItem,
-  listItem,
-  titleItem,
-  tempItem,
-  dateItem,
-  itemBtnUpdate,
-  itemBtnDelete,
-  boxButton,
-} from './ListCities.module.css';
+
+import CardCity from './CardCity';
 
 const ListCities = ({
   listCitiesWeather,
   onDeleteCity,
   fetchUpdateWeather,
   authenticated,
+  dragAndDrop,
 }) => {
   const [isNotify, setIsNotify] = useState(false);
+
   useEffect(() => {
     const allСities = listCitiesWeather.map((el) => el.name);
     if (listCitiesWeather.length) {
@@ -47,6 +42,21 @@ const ListCities = ({
     }, 2000);
   };
 
+  const moveCard = useCallback(
+    (dragIndex, hoverIndex) => {
+      const dragCard = listCitiesWeather[dragIndex];
+      dragAndDrop(
+        update(listCitiesWeather, {
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, dragCard],
+          ],
+        }),
+      );
+    },
+    [listCitiesWeather],
+  );
+
   return (
     <>
       <CSSTransition
@@ -58,38 +68,19 @@ const ListCities = ({
         <Notification text={'Please log In or Sign Up !'} />
       </CSSTransition>
 
-      {listCitiesWeather.map(
-        ({ dt, name, month, date, dayOfWeek, temp, icon }) => (
-          <li className={listItem} key={dt} onClick={handleMoreInfo}>
-            <NavLink
-              to={authenticated ? `/details/${name}` : `/`}
-              className={linkItem}
-            >
-              <h2 className={titleItem}>{name}</h2>
-              <div className={dateItem}>
-                <span>{month}</span> <span>{date}</span>,
-                <span>{dayOfWeek}</span>
-              </div>
-              <img src={icon} alt={icon} width="80" />
-              <p className={tempItem}>{temp}&deg;</p>
-            </NavLink>
-            {authenticated && (
-              <div className={boxButton}>
-                <button
-                  type="button"
-                  className={itemBtnUpdate}
-                  onClick={() => handleUpdate(name)}
-                ></button>
-                <button
-                  type="button"
-                  className={itemBtnDelete}
-                  onClick={() => handleDeleteCity(name)}
-                ></button>
-              </div>
-            )}
-          </li>
-        ),
-      )}
+      {listCitiesWeather.map((item, index) => (
+        <CardCity
+          key={item.dt}
+          index={index}
+          id={item.dt}
+          data={item}
+          handleDeleteCity={handleDeleteCity}
+          handleUpdate={handleUpdate}
+          handleMoreInfo={handleMoreInfo}
+          authenticated={authenticated}
+          moveCard={moveCard}
+        />
+      ))}
     </>
   );
 };

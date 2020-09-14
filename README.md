@@ -8,6 +8,7 @@
 - Redux
 - Redux-thunk
 - Redux-devtools
+- React DnD
 - axios
 - Node.js
 - Exprress

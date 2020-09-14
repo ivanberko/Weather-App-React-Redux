@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 import { CSSTransition } from 'react-transition-group';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
+// Styles
 import { listCities, titleHomePage } from './HomePage.module.css';
 import notifyTransition from '../../components/Notification/notify.module.css';
 
+// Components
 import ListCities from '../../components/ListCities/ListCitiesContainer';
 import SearchForm from '../../components/SearchForm/feachWeatherContainer';
 import Notification from '../../components/Notification/Notification';
@@ -36,7 +39,9 @@ const HomePage = ({ notifyError, errorSession }) => {
       <h1 className={titleHomePage}>Current Weather</h1>
       <SearchForm />
       <ul className={listCities}>
-        <ListCities />
+        <DndProvider backend={HTML5Backend}>
+          <ListCities />
+        </DndProvider>
       </ul>
     </>
   );

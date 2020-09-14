@@ -24,7 +24,7 @@ const ListCitiesDetails = ({ dayForecast, city, handleGoBack }) => {
       <h1 className={titleDetailsPage}> Forecast Weather</h1>
       <h2 className={titleItem}>{city}</h2>
       <button type="button" className={btnGoBack} onClick={handleGoBack}>
-        &#9668; Back
+        &#8656; Back
       </button>
       <ul className={listCities}>
         {forecastSlice(forecast).map(

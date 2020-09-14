@@ -13,8 +13,8 @@
 .listItem {
   width: 150px;
   border: 2px solid #0c4879;
-  background-color: rgba(20, 116, 195, 0.9);
-  border-radius: 5px;
+  background-color: rgba(20, 116, 195, 0.7);
+  border-radius: 15px;
   text-decoration: none;
   color: #000;
 }
@@ -58,14 +58,15 @@
 }
 
 .btnGoBack {
+  font-family: 'Cantarell', sans-serif;
+  font-style: italic;
   transform: translateX(-370px);
   border: 1px solid #ec6e4c;
   background-color: #fff;
   color: #ec6e4c;
-  font-weight: 700;
   border-radius: 5px;
-  padding: 4px 16px;
-  font-size: 14px;
+  padding: 4px 10px;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.2s linear;
   margin-bottom: 20px;
@@ -73,5 +74,5 @@
 
 .btnGoBack:hover {
   background-color: #ec6e4c;
-  color: #313131;
+  color: #0c4879;
 }

@@ -19,7 +19,9 @@
   background-color: transparent;
 }
 
-
+.searchInput::placeholder {
+  font-family: 'Cantarell', sans-serif;
+}
 
 .searchBtn {
   width: 50px;

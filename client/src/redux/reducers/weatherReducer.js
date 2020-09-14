@@ -16,6 +16,9 @@ const cityWeather = (state = [], { type, payload }) => {
     case TypeCity.DELETE_CITY:
       return state.filter((city) => city.name !== payload);
 
+    case TypeCity.DND_CITIES:
+      return payload;
+
     case TypeCurrent.FEACH_UPDATE_SUCCESS:
       return state.map((el) =>
         el.name === payload.data.name ? payload.data : el,
