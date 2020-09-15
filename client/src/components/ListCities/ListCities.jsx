@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import update from 'immutability-helper';
 import Notification from '../Notification/Notification';
-import notifyTransition from '../../components/Notification/notify.module.css';
+import notifyTransition from '../Notification/notify.module.css';
 
 import CardCity from './CardCity';
 
@@ -54,7 +55,7 @@ const ListCities = ({
         }),
       );
     },
-    [listCitiesWeather],
+    [dragAndDrop, listCitiesWeather],
   );
 
   return (
@@ -65,7 +66,7 @@ const ListCities = ({
         unmountOnExit
         classNames={notifyTransition}
       >
-        <Notification text={'Please log In or Sign Up !'} />
+        <Notification text="Please log In or Sign Up !" />
       </CSSTransition>
 
       {listCitiesWeather.map((item, index) => (
@@ -83,5 +84,13 @@ const ListCities = ({
       ))}
     </>
   );
+};
+
+ListCities.propTypes = {
+  listCitiesWeather: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  authenticated: PropTypes.bool.isRequired,
+  dragAndDrop: PropTypes.func.isRequired,
+  fetchUpdateWeather: PropTypes.func.isRequired,
+  onDeleteCity: PropTypes.func.isRequired,
 };
 export default withRouter(ListCities);

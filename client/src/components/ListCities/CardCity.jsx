@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useDrag, useDrop } from 'react-dnd';
-import { ItemTypes } from './ItemTypes';
+import ItemTypes from './ItemTypes';
 
 import {
   linkItem,
@@ -52,15 +53,11 @@ const CardCity = ({
   const opacity = isDragging ? 0.3 : 1;
   drag(drop(ref));
   return (
-    <li
-      ref={ref}
-      className={listItem}
-      onClick={handleMoreInfo}
-      style={{ opacity }}
-    >
+    <li ref={ref} className={listItem} style={{ opacity }}>
       <NavLink
         to={authenticated ? `/details/${data.name}` : `/`}
         className={linkItem}
+        onClick={handleMoreInfo}
       >
         <h2 className={titleItem}>{data.name}</h2>
         <div className={dateItem}>
@@ -86,6 +83,24 @@ const CardCity = ({
       )}
     </li>
   );
+};
+
+CardCity.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    month: PropTypes.string.isRequired,
+    temp: PropTypes.number.isRequired,
+    dayOfWeek: PropTypes.string.isRequired,
+  }).isRequired,
+  authenticated: PropTypes.bool.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
+  handleMoreInfo: PropTypes.func.isRequired,
+  handleDeleteCity: PropTypes.func.isRequired,
+  moveCard: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default CardCity;

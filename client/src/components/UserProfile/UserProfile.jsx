@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {profile, profileName} from './UserProfile.module.css'
+import { profile, profileName } from './UserProfile.module.css';
 
 import Button from '../shared/Button';
 
